@@ -61,6 +61,34 @@ a variety of accommodation options for visitors. Buses and taxis are available f
 
 </main>
 
+<section class="contact-section">
+    <h2>Visitor Enquiry Form</h2>
+
+    <form id="visitor-form">
+        <label for="name">Full name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Reason for enquiry:</label>
+        <select id="subject" name="subject" required>
+            <option value="">Please select</option>
+            <option value="attractions">Attractions</option>
+            <option value="travel">Travel information</option>
+            <option value="accommodation">Accommodation</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Submit enquiry</button>
+
+        <p id="form-message" aria-live="polite"></p>
+    </form>
+</section>
+    
 <footer>
     <p>
         For more information, contact me:
@@ -69,5 +97,19 @@ a variety of accommodation options for visitors. Buses and taxis are available f
     </p>
 </footer>
 
+<script>
+const form = document.getElementById("visitor-form");
+const formMessage = document.getElementById("form-message");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    formMessage.textContent =
+        "Thank you. Your enquiry has been submitted successfully.";
+
+    form.reset();
+});
+</script>
+    
 </body>
 </html>
